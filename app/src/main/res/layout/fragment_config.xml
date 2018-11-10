@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.ConfigFragment"
+    android:layout_marginBottom="80dp">
+
+
+    <SeekBar
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="3"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/seekBar1"
+            android:layout_alignParentBottom="true"/>
+
+    <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="429"
+            android:progress="429"
+            android:layout_centerHorizontal="true"
+            android:layout_alignBottom="@id/tv_mode_title"
+            android:layout_marginBottom="50dp"
+            android:id="@+id/seekBar2"/>
+
+    <TextView
+            android:text="@string/pulselength"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/seekBar2"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/tv_pulse_title"/>
+
+    <TextView
+            android:text="@string/mode"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_mode_title"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/seekBar1"/>
+
+</RelativeLayout>
