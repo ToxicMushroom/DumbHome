@@ -18,7 +18,7 @@ public class HttpManager {
         for (int i : codes) {
             sb.append(",").append(i);
         }
-        final String codeString = sb.toString().replaceFirst(",", "");
+        final String codeString = sb.toString().replaceFirst(",", "").replaceAll("0,|,0", "");
 
         threadPool.execute(new Runnable() {
             @Override
