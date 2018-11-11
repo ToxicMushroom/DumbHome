@@ -29,8 +29,8 @@ public class ConfigFragment extends Fragment {
         pulseLength = pref.getInt("pulseLength", pulseLength);
         SeekBar modeBar = view.findViewById(R.id.seekBar1);
         SeekBar pulseLengthBar = view.findViewById(R.id.seekBar2);
-        modeBar.setProgress(mode);
-        pulseLengthBar.setProgress(pulseLength);
+        modeBar.setProgress(mode-1);
+        pulseLengthBar.setProgress(pulseLength-1);
         textViewMode = view.findViewById(R.id.tv_mode_title);
         textViewPulseLength = view.findViewById(R.id.tv_pulse_title);
         textViewMode.setText("Mode: " + mode);
