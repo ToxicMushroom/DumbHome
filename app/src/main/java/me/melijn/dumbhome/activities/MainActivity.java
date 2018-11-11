@@ -1,6 +1,7 @@
 package me.melijn.dumbhome.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Process;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -55,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-        local = Helpers.getIp().equalsIgnoreCase(getApplicationContext().getSharedPreferences("Settings",0).getString("public-ipaddress", "N/A"));
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("Settings", 0);
+        Helpers.getIp(pref.getString("public-ipaddress", "84.198.44.242"));
         setFragment(sendFragment);
     }
 
@@ -88,7 +89,4 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.frame_layout, fragment).commit();
     }
-
-
-
 }

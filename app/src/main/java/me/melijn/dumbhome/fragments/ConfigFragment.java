@@ -1,5 +1,7 @@
 package me.melijn.dumbhome.fragments;
 
+import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -18,23 +20,31 @@ public class ConfigFragment extends Fragment {
     public static int mode = 1;
     public static int pulseLength = 430;
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_config, container, false);
-        SeekBar seekBar1 = view.findViewById(R.id.seekBar1);
-        SeekBar seekBar2 = view.findViewById(R.id.seekBar2);
+        SharedPreferences pref = view.getContext().getSharedPreferences("Settings", 0);
+        mode = pref.getInt("mode", mode);
+        pulseLength = pref.getInt("pulseLength", pulseLength);
+        SeekBar modeBar = view.findViewById(R.id.seekBar1);
+        SeekBar pulseLengthBar = view.findViewById(R.id.seekBar2);
+        modeBar.setProgress(mode);
+        pulseLengthBar.setProgress(pulseLength);
         textViewMode = view.findViewById(R.id.tv_mode_title);
         textViewPulseLength = view.findViewById(R.id.tv_pulse_title);
+        textViewMode.setText("Mode: " + mode);
+        textViewPulseLength.setText("PulseLength: " + pulseLength);
 
         SeekBar.OnSeekBarChangeListener onSeekBarChangeListener = new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
                 if (seekBar.getId() == R.id.seekBar1) {
                     mode = progress + 1;
-                    textViewMode.setText(String.valueOf("Mode: " + mode));
+                    textViewMode.setText("Mode: " + mode);
                 } else if (seekBar.getId() == R.id.seekBar2) {
                     pulseLength = progress+1;
-                    textViewPulseLength.setText(String.valueOf("PulseLength: " + pulseLength));
+                    textViewPulseLength.setText("PulseLength: " + pulseLength);
                 }
             }
 
@@ -47,8 +57,8 @@ public class ConfigFragment extends Fragment {
             }
         };
 
-        seekBar1.setOnSeekBarChangeListener(onSeekBarChangeListener);
-        seekBar2.setOnSeekBarChangeListener(onSeekBarChangeListener);
+        modeBar.setOnSeekBarChangeListener(onSeekBarChangeListener);
+        pulseLengthBar.setOnSeekBarChangeListener(onSeekBarChangeListener);
         return view;
     }
 }

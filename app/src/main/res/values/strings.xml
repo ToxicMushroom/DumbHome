@@ -85,4 +85,13 @@
     <string name="mode">Mode: 1</string>
     <string name="send">send</string>
     <string name="rules">rules</string>
+    <string name="local_ipaddress">Local Ipaddress</string>
+    <string name="public_ipaddress">Public Ipaddress</string>
+    <string name="host">Hostname</string>
+    <string name="route">Route</string>
+    <string name="Local_Port">Local Port</string>
+    <string name="Public_Port">Public Port</string>
+    <string name="mode1">Mode</string>
+    <string name="pulseLength">PulseLength</string>
+    <string name="save">save</string>
 </resources>

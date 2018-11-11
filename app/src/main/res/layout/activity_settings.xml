@@ -1,9 +1,245 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.SettingsActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:text="@string/save"
+            android:textSize="18sp"
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"/>
+        <RelativeLayout
+            android:layout_below="@id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/box1"
+            android:layout_margin="10dp">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/til1">
+
+                <EditText
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textNoSuggestions"
+                    android:ems="30"
+                    android:id="@+id/etext_local_ip"
+                    android:hint="@string/local_ipaddress"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/til1"
+                android:id="@+id/til2">
+
+                <EditText
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textNoSuggestions"
+                    android:ems="30"
+                    android:id="@+id/etext_public_ip"
+                    android:hint="@string/public_ipaddress"/>
+            </android.support.design.widget.TextInputLayout>
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/div1"
+            android:layout_marginTop="25dp"
+            android:layout_below="@+id/box1"
+            android:layout_width="match_parent"
+            android:background="#808080"
+            android:layout_height="2px"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/div1"
+            android:id="@+id/box2"
+            android:layout_margin="10dp">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/til5">
+                <EditText
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textNoSuggestions"
+                    android:ems="30"
+                    android:id="@+id/etext_local_port"
+                    android:hint="@string/Local_Port"/>
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/til5"
+                    android:id="@+id/til6">
+                <EditText
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="textNoSuggestions"
+                        android:ems="30"
+                        android:id="@+id/etext_public_port"
+                        android:hint="@string/Public_Port"/>
+            </android.support.design.widget.TextInputLayout>
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/div2"
+            android:layout_marginTop="25dp"
+            android:layout_below="@+id/box2"
+            android:layout_width="match_parent"
+            android:background="#808080"
+            android:layout_height="2px"/>
+
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/div2"
+                android:id="@+id/box3"
+                android:layout_margin="10dp">
+
+            <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/til3">
+                <EditText
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="textNoSuggestions"
+                        android:ems="30"
+                        android:id="@+id/etext_host"
+                        android:hint="@string/host"/>
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/til3"
+                    android:id="@+id/til4">
+                <EditText
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="textNoSuggestions"
+                        android:ems="30"
+                        android:id="@+id/etext_route"
+                        android:hint="@string/route"/>
+            </android.support.design.widget.TextInputLayout>
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/div3"
+            android:layout_marginTop="25dp"
+            android:layout_below="@+id/box3"
+            android:layout_width="match_parent"
+            android:background="#808080"
+            android:layout_height="2px"/>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/div3"
+                android:id="@+id/box4"
+                android:layout_margin="10dp">
+
+            <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/til7">
+                <EditText
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:ems="30"
+                        android:id="@+id/etext_mode"
+                        android:hint="@string/mode1"/>
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/til7"
+                    android:id="@+id/til8">
+                <EditText
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:ems="30"
+                        android:id="@+id/etext_pulseLength"
+                        android:hint="@string/pulseLength"/>
+            </android.support.design.widget.TextInputLayout>
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/div4"
+            android:layout_marginTop="25dp"
+            android:layout_below="@+id/box4"
+            android:layout_width="match_parent"
+            android:background="#808080"
+            android:layout_height="2px"/>
+
+        <CheckBox
+            android:text="1"
+            android:scaleY="1.8"
+            android:scaleX="1.8"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/div4"
+            android:layout_margin="10dp"
+            android:id="@+id/checkBoxSetting1"/>
+        <CheckBox
+            android:text="2"
+            android:scaleY="1.8"
+            android:scaleX="1.8"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/checkBoxSetting1"
+            android:layout_margin="10dp"
+            android:id="@+id/checkBoxSetting2"/>
+        <CheckBox
+            android:text="3"
+            android:scaleY="1.8"
+            android:scaleX="1.8"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/checkBoxSetting2"
+            android:layout_margin="10dp"
+            android:id="@+id/checkBoxSetting3"/>
+        <CheckBox
+            android:text="4"
+            android:scaleY="1.8"
+            android:scaleX="1.8"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/checkBoxSetting3"
+            android:layout_margin="10dp"
+            android:id="@+id/checkBoxSetting4"/>
+
+
+    </RelativeLayout>
+</ScrollView>
