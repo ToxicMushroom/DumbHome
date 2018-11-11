@@ -79,7 +79,7 @@ public class SendFragment extends Fragment {
                 int localPort = preferences.getInt("local-port", 8080);
                 int publicPort = preferences.getInt("public-port", 80);
 
-                String url = (MainActivity.local ? "http://" + ip + ":" + localPort : "https://" + host + ":" + publicPort) + "/" + route;
+                String url = (MainActivity.local ? "http://" + ip + ":" + localPort : "https://" + host + (publicPort == 80 ? "" : ":" + publicPort)) + "/" + route;
                 switch (view.getId()) {
                     case R.id.btn_local1:
                         btn = 1;
