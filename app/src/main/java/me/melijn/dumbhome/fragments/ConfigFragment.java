@@ -24,9 +24,6 @@ public class ConfigFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_config, container, false);
-        SharedPreferences pref = view.getContext().getSharedPreferences("Settings", 0);
-        mode = pref.getInt("mode", mode);
-        pulseLength = pref.getInt("pulseLength", pulseLength);
         SeekBar modeBar = view.findViewById(R.id.seekBar1);
         SeekBar pulseLengthBar = view.findViewById(R.id.seekBar2);
         modeBar.setProgress(mode-1);

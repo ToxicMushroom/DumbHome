@@ -58,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
         });
         SharedPreferences pref = getApplicationContext().getSharedPreferences("Settings", 0);
         Helpers.getIp(pref.getString("public-ipaddress", "84.198.44.242"));
+        ConfigFragment.mode = pref.getInt("mode", ConfigFragment.mode);
+        ConfigFragment.pulseLength = pref.getInt("pulseLength", ConfigFragment.pulseLength);
         setFragment(sendFragment);
     }
 
