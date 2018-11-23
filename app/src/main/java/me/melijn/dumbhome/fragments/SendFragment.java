@@ -76,6 +76,8 @@ public class SendFragment extends Fragment {
                 String host = preferences.getString("host", "rasp.melijn.me");
                 String ip = preferences.getString("local-ipaddress", "192.168.0.44");
                 String route = preferences.getString("route", "chacon");
+                String user = preferences.getString("user", "name");
+                String token = preferences.getString("token", "token");
                 int localPort = preferences.getInt("local-port", 8080);
                 int publicPort = preferences.getInt("public-port", 80);
 
@@ -117,7 +119,7 @@ public class SendFragment extends Fragment {
                                 codes[2] = index.getJSONObject(String.valueOf(ConfigFragment.mode)).getInt("5");
                             if (checkBox7_8.isChecked())
                                 codes[3] = index.getJSONObject(String.valueOf(ConfigFragment.mode)).getInt("7");
-                            HttpManager.sendRequest(url, codes);
+                            HttpManager.sendRequest(url, user, token, codes);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -134,7 +136,7 @@ public class SendFragment extends Fragment {
                                 codes[2] = index.getJSONObject(String.valueOf(ConfigFragment.mode)).getInt("6");
                             if (checkBox7_8.isChecked())
                                 codes[3] = index.getJSONObject(String.valueOf(ConfigFragment.mode)).getInt("8");
-                            HttpManager.sendRequest(url, codes);
+                            HttpManager.sendRequest(url, user, token, codes);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -144,7 +146,7 @@ public class SendFragment extends Fragment {
                 }
                 if (btn == -1) return;
                 try {
-                    HttpManager.sendRequest(url, index.getJSONObject(String.valueOf(ConfigFragment.mode)).getInt(String.valueOf(btn)));
+                    HttpManager.sendRequest(url, user, token, index.getJSONObject(String.valueOf(ConfigFragment.mode)).getInt(String.valueOf(btn)));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

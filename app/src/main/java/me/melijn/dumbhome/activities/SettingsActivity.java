@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 import me.melijn.dumbhome.R;
 
 public class SettingsActivity extends AppCompatActivity {
@@ -32,6 +33,8 @@ public class SettingsActivity extends AppCompatActivity {
         if (!pref.contains("public-port")) editor.putInt("public-port", 80);
         if (!pref.contains("host")) editor.putString("host", "rasp.melijn.me");
         if (!pref.contains("route")) editor.putString("route", "chacon/");
+        if (!pref.contains("user")) editor.putString("user", "default");
+        if (!pref.contains("token")) editor.putString("token", "token");
         if (!pref.contains("pulseLength")) editor.putInt("pulseLength", 215);
         if (!pref.contains("mode")) editor.putInt("mode", 1);
         if (!pref.contains("checked1")) editor.putBoolean("checked1", true);
@@ -54,6 +57,11 @@ public class SettingsActivity extends AppCompatActivity {
         final EditText editTextRoute = findViewById(R.id.etext_route);
         editTextHost.setText(pref.getString("host", "rasp.melijn.me"));
         editTextRoute.setText(pref.getString("route", "chacon/"));
+
+        final EditText editTextUser = findViewById(R.id.etext_user);
+        final EditText editTextToken = findViewById(R.id.etext_token);
+        editTextUser.setText(pref.getString("user", "default"));
+        editTextToken.setText(pref.getString("token", "token"));
 
         final EditText editTextPulseLength = findViewById(R.id.etext_pulseLength);
         final EditText editTextMode = findViewById(R.id.etext_mode);
@@ -81,6 +89,8 @@ public class SettingsActivity extends AppCompatActivity {
                 editor.putInt("public-port", Integer.parseInt(editTextPublicPort.getText().toString()));
                 editor.putString("host", editTextHost.getText().toString());
                 editor.putString("route", editTextRoute.getText().toString());
+                editor.putString("user", editTextUser.getText().toString());
+                editor.putString("token", editTextToken.getText().toString());
                 editor.putInt("pulseLength", Integer.parseInt(editTextPulseLength.getText().toString()));
                 editor.putInt("mode", Integer.parseInt(editTextMode.getText().toString()));
                 editor.putBoolean("checked1", checkBox1.isChecked());
@@ -88,6 +98,7 @@ public class SettingsActivity extends AppCompatActivity {
                 editor.putBoolean("checked3", checkBox3.isChecked());
                 editor.putBoolean("checked4", checkBox4.isChecked());
                 editor.apply();
+                Toast.makeText(getApplicationContext(), "Saved!", Toast.LENGTH_SHORT).show();
             }
         });
     }

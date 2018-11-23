@@ -73,7 +73,7 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/til5">
+                android:id="@+id/til3">
                 <EditText
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
@@ -86,8 +86,8 @@
             <android.support.design.widget.TextInputLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/til5"
-                    android:id="@+id/til6">
+                    android:layout_below="@+id/til3"
+                    android:id="@+id/til4">
                 <EditText
                         android:layout_margin="5dp"
                         android:layout_width="wrap_content"
@@ -118,7 +118,7 @@
             <android.support.design.widget.TextInputLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/til3">
+                    android:id="@+id/til5">
                 <EditText
                         android:layout_margin="5dp"
                         android:layout_width="wrap_content"
@@ -131,8 +131,8 @@
             <android.support.design.widget.TextInputLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/til3"
-                    android:id="@+id/til4">
+                    android:layout_below="@+id/til5"
+                    android:id="@+id/til6">
                 <EditText
                         android:layout_margin="5dp"
                         android:layout_width="wrap_content"
@@ -167,6 +167,50 @@
                         android:layout_margin="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:inputType="textNoSuggestions"
+                        android:ems="30"
+                        android:id="@+id/etext_user"
+                        android:hint="@string/user"/>
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/til7"
+                    android:id="@+id/til8">
+                <EditText
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="textNoSuggestions"
+                        android:ems="30"
+                        android:id="@+id/etext_token"
+                        android:hint="@string/token"/>
+            </android.support.design.widget.TextInputLayout>
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/div4"
+            android:layout_marginTop="25dp"
+            android:layout_below="@+id/box4"
+            android:layout_width="match_parent"
+            android:background="#808080"
+            android:layout_height="2px"/>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/div4"
+                android:id="@+id/box5"
+                android:layout_margin="10dp">
+
+            <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/til9">
+                <EditText
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
                         android:ems="30"
                         android:id="@+id/etext_mode"
@@ -175,8 +219,8 @@
             <android.support.design.widget.TextInputLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/til7"
-                    android:id="@+id/til8">
+                    android:layout_below="@+id/til9"
+                    android:id="@+id/til10">
                 <EditText
                         android:layout_margin="5dp"
                         android:layout_width="wrap_content"
@@ -189,9 +233,9 @@
         </RelativeLayout>
 
         <View
-            android:id="@+id/div4"
+            android:id="@+id/div5"
             android:layout_marginTop="25dp"
-            android:layout_below="@+id/box4"
+            android:layout_below="@+id/box5"
             android:layout_width="match_parent"
             android:background="#808080"
             android:layout_height="2px"/>
@@ -204,7 +248,7 @@
             android:layout_marginStart="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/div4"
+            android:layout_below="@id/div5"
             android:layout_margin="10dp"
             android:id="@+id/checkBoxSetting1"/>
         <CheckBox
@@ -240,7 +284,6 @@
             android:layout_below="@id/checkBoxSetting3"
             android:layout_margin="10dp"
             android:id="@+id/checkBoxSetting4"/>
-
 
     </RelativeLayout>
 </ScrollView>

@@ -94,4 +94,6 @@
     <string name="mode1">Mode</string>
     <string name="pulseLength">PulseLength</string>
     <string name="save">save</string>
+    <string name="token">token</string>
+    <string name="user">user</string>
 </resources>
