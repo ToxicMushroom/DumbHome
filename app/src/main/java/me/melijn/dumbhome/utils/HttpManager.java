@@ -1,6 +1,8 @@
 package me.melijn.dumbhome.utils;
 
+import android.util.Base64;
 import me.melijn.dumbhome.fragments.ConfigFragment;
+import okhttp3.Credentials;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -13,7 +15,7 @@ public class HttpManager {
 
     private static final ExecutorService threadPool = Executors.newSingleThreadExecutor();
 
-    public static void sendRequest(final String url, final int... codes) {
+    public static void sendRequest(final String url, final String user, final String token, final int... codes) {
         StringBuilder sb = new StringBuilder();
         for (int i : codes) {
             sb.append(",").append(i);
@@ -24,6 +26,7 @@ public class HttpManager {
             @Override
             public void run() {
                 try {
+
                     Request request = new Request.Builder()
                             .url(url)
                             .post(new MultipartBody.Builder()
@@ -31,7 +34,9 @@ public class HttpManager {
                                     .addFormDataPart("codes", codeString)
                                     .addFormDataPart("pulseLength", String.valueOf(ConfigFragment.pulseLength))
                                     .build())
-                            .addHeader("Content-Type", "application/x-www-form-urlencoded").build();
+                            .addHeader("content-type", "application/x-www-form-urlencoded")
+                            .addHeader("authorization", Credentials.basic(user, token))
+                            .build();
                     new OkHttpClient().newCall(request).execute();
                 } catch (IOException e) {
                     e.printStackTrace();
