@@ -3,7 +3,6 @@ package me.melijn.dumbhome.fragments;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.InputDevice;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,13 +11,10 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import me.melijn.dumbhome.R;
 import me.melijn.dumbhome.activities.MainActivity;
-import me.melijn.dumbhome.utils.HttpManager;
-import me.melijn.dumbhome.utils.JSONConverter;
+import me.melijn.dumbhome.utils.HttpManagerKt;
+import me.melijn.dumbhome.utils.JSONConverterKt;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class SendFragment extends Fragment {
@@ -66,7 +62,7 @@ public class SendFragment extends Fragment {
         checkBox5_6.setChecked(preferences.getBoolean("checked3", true));
         checkBox7_8.setChecked(preferences.getBoolean("checked4", false));
 
-        final JSONObject index = new JSONConverter(getResources().openRawResource(R.raw.index)).getObj();
+        final JSONObject index = JSONConverterKt.getObjFromStream(getResources().openRawResource(R.raw.index));
 
         onClickListener = new View.OnClickListener() {
             @Override
@@ -119,7 +115,7 @@ public class SendFragment extends Fragment {
                                 codes[2] = index.getJSONObject(String.valueOf(ConfigFragment.mode)).getInt("5");
                             if (checkBox7_8.isChecked())
                                 codes[3] = index.getJSONObject(String.valueOf(ConfigFragment.mode)).getInt("7");
-                            HttpManager.sendRequest(url, user, token, codes);
+                            HttpManagerKt.sendRequest(url, user, token, codes);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -136,7 +132,7 @@ public class SendFragment extends Fragment {
                                 codes[2] = index.getJSONObject(String.valueOf(ConfigFragment.mode)).getInt("6");
                             if (checkBox7_8.isChecked())
                                 codes[3] = index.getJSONObject(String.valueOf(ConfigFragment.mode)).getInt("8");
-                            HttpManager.sendRequest(url, user, token, codes);
+                            HttpManagerKt.sendRequest(url, user, token, codes);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -146,7 +142,7 @@ public class SendFragment extends Fragment {
                 }
                 if (btn == -1) return;
                 try {
-                    HttpManager.sendRequest(url, user, token, index.getJSONObject(String.valueOf(ConfigFragment.mode)).getInt(String.valueOf(btn)));
+                    HttpManagerKt.sendRequest(url, user, token, index.getJSONObject(String.valueOf(ConfigFragment.mode)).getInt(String.valueOf(btn)));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

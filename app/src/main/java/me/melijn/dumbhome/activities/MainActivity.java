@@ -17,7 +17,7 @@ import me.melijn.dumbhome.R;
 import me.melijn.dumbhome.fragments.ConfigFragment;
 import me.melijn.dumbhome.fragments.RulesFragment;
 import me.melijn.dumbhome.fragments.SendFragment;
-import me.melijn.dumbhome.utils.Helpers;
+import me.melijn.dumbhome.utils.HelpersKt;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         SharedPreferences pref = getApplicationContext().getSharedPreferences("Settings", 0);
-        Helpers.getIp(pref.getString("public-ipaddress", "84.198.44.242"));
+        HelpersKt.getIp(pref.getString("public-ipaddress", "84.198.44.242"));
         ConfigFragment.mode = pref.getInt("mode", ConfigFragment.mode);
         ConfigFragment.pulseLength = pref.getInt("pulseLength", ConfigFragment.pulseLength);
         setFragment(sendFragment);
@@ -71,13 +71,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_bar_nav_settings:
-                startActivity(new Intent(this, SettingsActivity.class));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.action_bar_nav_settings) {
+            startActivity(new Intent(this, SettingsActivity.class));
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
