@@ -10,8 +10,10 @@ private val threadPool = Executors.newSingleThreadExecutor()
 fun getIp(configuredIp: String) {
     threadPool.submit {
         try {
-            val url = URL("http://checkip.amazonaws.com")
-            BufferedReader(InputStreamReader(url.openStream())).use { `in` -> MainActivity.local = configuredIp.equals(`in`.readLine(), ignoreCase = true) }
+            val url = URL("https://checkip.amazonaws.com")
+            BufferedReader(InputStreamReader(url.openStream())).use { `in` ->
+                MainActivity.local = configuredIp.equals(`in`.readLine(), ignoreCase = true)
+            }
         } catch (e: Exception) {
             e.printStackTrace()
         }
