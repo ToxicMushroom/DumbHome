@@ -1,6 +1,7 @@
 # DumbHome
 Android app for managing my dumbhome stuff
-this project moved to https://github.com/ToxicMushroom/DumbHome-app
+
+This project moved to https://github.com/ToxicMushroom/DumbHome-app
 
 ## Todo
 - Remake android app (again) with more customization and custom web requests/presets and theming :p
